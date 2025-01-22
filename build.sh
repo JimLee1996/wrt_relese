@@ -62,8 +62,7 @@ mkdir -p "$FIRMWARE_DIR"
 find "$TARGET_DIR" -type f \( -name "*.bin" -o -name "*.manifest" -o -name "*efi.img.gz" -o -name "*.itb" -o -name "*.fip" -o -name "*.ubi" -o -name "*rootfs.tar.gz" \) -exec cp -f {} "$FIRMWARE_DIR/" \;
 \rm -f "$BASE_PATH/firmware/Packages.manifest" 2>/dev/null
 \cp -f "$BASE_PATH/$BUILD_DIR/.config" "$FIRMWARE_DIR/build.config"
-mkdir -p packages
-tar -zcf Packages.tar.gz "$BASE_PATH/$BUILD_DIR/bin/packages" && mv Packages.tar.gz "$FIRMWARE_DIR/"
+mv "$BASE_PATH/$BUILD_DIR/bin/packages" . && tar -zcf Packages.tar.gz packages && mv Packages.tar.gz "$FIRMWARE_DIR/"
 
 if [[ -d $BASE_PATH/action_build ]]; then
     make clean
