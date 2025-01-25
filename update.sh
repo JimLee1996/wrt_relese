@@ -24,7 +24,7 @@ FEEDS_CONF="feeds.conf.default"
 GOLANG_REPO="https://github.com/sbwml/packages_lang_golang"
 GOLANG_BRANCH="23.x"
 THEME_SET="argon"
-LAN_ADDR="192.168.1.1"
+LAN_ADDR="192.168.2.1"
 
 clone_repo() {
     if [[ ! -d $BUILD_DIR ]]; then
@@ -512,10 +512,10 @@ main() {
     # fix_mkpkg_format_invalid
     chanage_cpuusage
     update_tcping
-    add_wg_chk
+    # add_wg_chk
     add_ax6600_led
-    set_custom_task
-    update_pw_ha_chk
+    # set_custom_task
+    # update_pw_ha_chk
     install_opkg_distfeeds
     update_nss_pbuf_performance
     set_build_signature
